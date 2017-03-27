@@ -1,5 +1,7 @@
 # Reverse Shell
 
+		.:: Just For FUN :D ::..
+
 This is simple script to connecting Shell to system.
 
 This script can run any system (windows,linux,mac).
@@ -11,6 +13,10 @@ Then install ruby you need install colorize Gem :
 ```
 gem install colorize
 ```
+
+Install Ipinfo gem from here:
+
+https://github.com/shayanzare007/ipinfo
 
 ## Run
 
@@ -26,7 +32,7 @@ then run payload.rb :
 ruby payload.rb
 ```
 
-For running payload in background add '&' to command like this :
+For running payload in background add '&' to command like this(linux) :
 
 ```
 ruby server.rb &
