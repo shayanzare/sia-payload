@@ -1,0 +1,10 @@
+*~
+*.swo
+*.swp
+doc/
+coverage/
+pkg/
+.rvmrc
+.DS_Store
+*.lock
+.gem
