@@ -14,10 +14,6 @@ Then install ruby you need install colorize Gem :
 gem install colorize
 ```
 
-Install Ipinfo gem from here:
-
-https://github.com/shayanzare007/ipinfo
-
 ## Run
 
 Config your ip and port in payload.rb file then :

