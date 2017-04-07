@@ -34,8 +34,22 @@ For running payload in background add '&' to command like this(linux) :
 ruby server.rb &
 ```
 
+## Ruby To EXE
+
+You can ruby to .exe with ocra
+
+Ocra Project : https://github.com/larsch/ocra/
+
 ## TODO
 
 - [ ] Add new commands
 - [ ] Powerful up
 - [ ] Multi Targets
+
+## About
+
+My Email: virus007@protonmail.com
+
+Twitter : @Vi47S007
+
+Telegram ID : @Msf_Payload
