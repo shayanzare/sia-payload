@@ -1,6 +1,6 @@
 # Reverse Shell
 
-		.:: Just For FUN :D ::..
+		.:: Just For FUN :D ::.
 
 This is simple script to connecting Shell to system.
 
