@@ -33,7 +33,14 @@ puts """
 
                           Coded By ViRuS007
                     Email: virus007@protonmail.com
-
+                         Twitter : @Vi47S007
+      
+          Command : 
+                      info        =>   Get system info (ip, host name ...)
+                      siahack     =>   Show your deface webpage
+                      download    =>   Download file(config url in payload.rb file)
+                      down-run    =>   Download and run file(config url in payload.rb file)
+                      
 """
 
 
