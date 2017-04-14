@@ -23,6 +23,22 @@ else
   system("clear")
 end
 
+#Show progress bar
+(1..10).each	do	|percent|
+		print	"#{BOLD}#{RED}#{percent*10}%	Start Server Sia-Payload...\r"
+		sleep(0.5)
+		print		("\e[K")	#	Delete	current	line
+end
+puts	"Done!#{RS}"
+
+sleep(2)
+
+if RUBY_PLATFORM =~ /win32/
+  system("cls")
+else
+  system("clear")
+end
+
 #press CTRL + C show message
 trap("SIGINT") {
   puts "\n\n#{HC}#{FRED}WARNING! CTRL+C Detected closing Socket connection#{FWHT}.....#{RS}"
