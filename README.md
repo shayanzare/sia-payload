@@ -1,5 +1,4 @@
-# Reverse Shell
-
+# Sia-Payload
 [![asciicast](https://asciinema.org/a/5w8ml9x8keu8ladp2tz5os598.png)](https://asciinema.org/a/5h763v4bdeotz5jyx4uhryvv4)
 
 		.:: Just For FUN :D ::.
@@ -44,8 +43,8 @@ Ocra Project : https://github.com/larsch/ocra/
 
 ## TODO
 
-- [ ] Add new commands
-- [ ] Powerful up
+- [X] Add new commands
+- [X] Powerful up
 - [ ] Multi Targets
 
 ## About
