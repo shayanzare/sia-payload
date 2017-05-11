@@ -67,7 +67,7 @@ puts """
 """
 
 
-port = 8001
+port = 81
 puts "#{HC}#{FGRN}[+] Starting Server at port : #{port} #{RS}"
 time = Time.now
 puts "#{HC}#{FGRN}[+] Start at : #{time}#{RS}"
@@ -108,5 +108,5 @@ loop {                          # Servers run forever
         end
       end
     end
-      end
+  end
 }
