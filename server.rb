@@ -67,6 +67,16 @@ puts """
                       
 """
 
+LIST_H = [
+    "info" , "siahack", "download",
+    "down-run", "makeFile"
+].sort
+
+comp = proc { |s| LIST_H.grep( /^#{Regexp.escape(s)}/ ) }
+
+Readline.completion_append_character = " "
+Readline.completion_proc = comp
+
 port = 8001
 puts "#{HC}#{FGRN}[+] Starting Server at port : #{port} #{RS}"
 time = Time.now
