@@ -35,11 +35,26 @@ For running payload in background add '&' to command like this(linux) :
 ruby server.rb &
 ```
 
+## Setup Telegram Bot For Payload
+
+Create a bot in telegram and set a Token in this code of payload_bot.rb
+file:
+
+```ruby
+$TOKEN = "Your Telegram bot TOKEN" 
+```
+
 ## Ruby To EXE
 
 You can ruby to .exe with ocra
 
 Ocra Project : https://github.com/larsch/ocra/
+
+## Whats News ?
+
+Adding new Under the payload bot Telegram.
+
+This payload The payload requires no server and can be controlled via a bot Telegram
 
 ## TODO
 
