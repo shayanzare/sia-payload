@@ -11,8 +11,8 @@ This script can run any system (windows,linux,mac).
 For run you need to install ruby.
 
 Then install ruby you need install colorize Gem :
-```
-gem install colorize
+```bash
+bundle install
 ```
 
 ## Run
@@ -20,7 +20,7 @@ gem install colorize
 Config your ip and port in payload.rb file then :
 
 run server.rb :
-```
+```bash
 ruby server.rb
 ```
 
@@ -43,6 +43,11 @@ file:
 ```ruby
 $TOKEN = "Your Telegram bot TOKEN" 
 ```
+
+## Payload bot Tools
+
+/screenShot    =>    Taking screenShot just for linux
+/info	       =>    Get System IP adress and info ip addr
 
 ## Ruby To EXE
 
