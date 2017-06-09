@@ -74,7 +74,8 @@ Github: http://github.com/shayanzare/sia-payload
                 bot.api.sendMessage(chat_id: message.chat.id, text: "[+] Result :\n\n#{result}")
         end
     end
-    rescue Telegram::Bot::Exceptions::ResponseError => e
+    rescue 
+        puts "Error"
         retry
     end
 end
